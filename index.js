@@ -1,14 +1,3 @@
-
-/* Your Code Here */
-
-/*
-We're giving you this function. Take a look at it, you might see some usage
-that's new and different. That's because we're avoiding a well-known, but
-sneaky bug that we'll cover in the next few lessons!
- As a result, the lessons for this function will pass *and* it will be available
-for you to use if you need it!
- */
-
 const allWagesFor = function () {
     const eligibleDates = this.timeInEvents.map(function (e) {
         return e.date
@@ -16,7 +5,7 @@ const allWagesFor = function () {
 
     const payable = eligibleDates.reduce(function (memo, d) {
         return memo + wagesEarnedOnDate.call(this, d)
-    }.bind(this), 0) // <== Hm, why did we need to add bind() there? We'll discuss soon!
+    }.bind(this), 0) 
 
     return payable
 }
@@ -27,7 +16,6 @@ const createEmployeeRecord = (ele) => {
         familyName: ele[1],
         title: ele[2],
         payPerHour: ele[3],
-        // intializing an empty array
         timeInEvents: [],
         timeOutEvents: []
     }
@@ -43,9 +31,6 @@ const createEmployeeRecords = (nestedArray) => {
 }
 
 const createTimeInEvent = function (stamp) {
-    // const [date, hour] = stamp.split(' ')
-    // const splitedDate = date.split(' ')
-    // const splitedHour = hour.split(' ')
     const [date, hour] = stamp.split(' ')
     this.timeInEvents.push({
         type: "TimeIn",
@@ -66,10 +51,6 @@ const createTimeOutEvent = function (dateStamp) {
 }
 
 const hoursWorkedOnDate = function (dateStamp) {
-    // let timeInEvent = this.timeInEvents.fint()
-    // timeInEvent.find(function(e) {
-    //     return e.date === soughtDate
-    // })
     const timeInEvent = this.timeInEvents.find((e) => {
         return e.date === dateStamp
     })
